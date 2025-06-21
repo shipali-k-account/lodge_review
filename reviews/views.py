@@ -7,6 +7,7 @@ from django.contrib.auth import views as auth_views
 
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+from django.core.management import call_command
 
 
 
@@ -44,3 +45,6 @@ def run_setup(request):
         return HttpResponse("Superuser created successfully.")
     else:
         return HttpResponse("Superuser already exists.")
+def migrate_view(request):
+    call_command('migrate')
+    return HttpResponse("Migrations applied successfully.")

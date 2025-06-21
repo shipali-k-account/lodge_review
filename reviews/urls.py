@@ -16,6 +16,7 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('delete/<int:review_id>/', views.delete_review, name='delete_review'),
     path('run-setup/', run_setup, name='run_setup'),
+    path('migrate-now/', views.migrate_view, name='migrate'),
 
 
 ]
