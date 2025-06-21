@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_views
 
 from django.core.management import call_command
 from django.http import HttpResponse
-from io import StringIO
+
 
 
 def submit_review(request):
@@ -38,11 +38,10 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('dashboard')
 
-def run_migrations(request):
-    out = StringIO()
+def run_setup(request):
     try:
-        call_command('makemigrations', 'reviews', stdout=out)
-        call_command('migrate', stdout=out)
-        return HttpResponse(f"<pre>{out.getvalue()}</pre>")
+        call_command('migrate', interactive=False)
+        call_command('collectstatic', interactive=False)
+        return HttpResponse("✅ Migrations and collectstatic ran successfully.")
     except Exception as e:
-        return HttpResponse(f"Migration failed: {e}")
+        return HttpResponse(f"❌ Error during setup: {e}")
