@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404  # type: ignore
 from .forms import ReviewForm
 from .models import Review
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import login, logout
+
 
 from django.http import HttpResponse
 from django.core.management import call_command
