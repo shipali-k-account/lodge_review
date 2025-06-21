@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin 
 from django.urls import path, include 
+from reviews.views import run_migrations
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('reviews.urls')),
+   path("admin/", admin.site.urls),
+    path("run-migrations/", run_migrations),  
+    path("", include("reviews.urls")),
 
 ]

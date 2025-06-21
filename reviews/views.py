@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth import views as auth_views
 
-
+from django.http import HttpResponse
+from django.core.management import call_command
 
 
 def submit_review(request):
@@ -36,4 +37,9 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('dashboard')
 
-
+def run_migrations(request):
+    try:
+        call_command("migrate")
+        return HttpResponse("✅ Migrations applied successfully.")
+    except Exception as e:
+        return HttpResponse(f"❌ Migration failed: {str(e)}")

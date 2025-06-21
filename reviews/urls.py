@@ -3,6 +3,8 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 
+
+
 urlpatterns = [
     path('review/', views.submit_review, name='submit_review'),
 
