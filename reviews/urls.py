@@ -1,7 +1,7 @@
 from django.urls import path  
 from . import views
 from django.contrib.auth import views as auth_views
-from reviews.views import run_setup
+
 
 urlpatterns = [
     path('review/', views.submit_review, name='submit_review'),
