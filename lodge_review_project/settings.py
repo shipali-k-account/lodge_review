@@ -11,18 +11,19 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = 'django-insecure-(m8ny%5o=g!8eux@qxh4(%6h)6_n#qm)afc@y=0*xcb!)n-3uc'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 DEBUG = True
 
-import os
+
 ALLOWED_HOSTS = ['*'] if DEBUG else [os.environ.get('RENDER_EXTERNAL_HOSTNAME', 'yourdomain.com')]
 
 
