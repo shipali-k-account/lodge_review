@@ -1,0 +1,1 @@
+web: gunicorn lodge_review_project.wsgi
