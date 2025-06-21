@@ -5,9 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth import views as auth_views
 
-from django.contrib.auth.models import User
-from django.http import HttpResponse
-from django.core.management import call_command
 
 
 
@@ -39,12 +36,4 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('dashboard')
 
-def run_setup(request):
-    if not User.objects.filter(username='admin123').exists():
-        User.objects.create_superuser(username='admin123', password='lodge123', email='admin@example.com')
-        return HttpResponse("Superuser created successfully.")
-    else:
-        return HttpResponse("Superuser already exists.")
-def migrate_view(request):
-    call_command('migrate')
-    return HttpResponse("Migrations applied successfully.")
+
