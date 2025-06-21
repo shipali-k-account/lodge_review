@@ -1,8 +1,7 @@
 from django.urls import path  
 from . import views
 from django.contrib.auth import views as auth_views
-from django.urls import path
-from .views import run_setup
+
 urlpatterns = [
     path('review/', views.submit_review, name='submit_review'),
 
@@ -15,6 +14,6 @@ urlpatterns = [
   
     path('logout/', views.logout_view, name='logout'),
     path('delete/<int:review_id>/', views.delete_review, name='delete_review'),
-    path('run-setup/', run_setup),
+  
 
 ]

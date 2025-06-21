@@ -4,8 +4,7 @@ from .models import Review
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth import views as auth_views
-from django.http import HttpResponse
-from django.core.management import call_command
+
 
 def submit_review(request):
     submitted = False
@@ -35,7 +34,3 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('dashboard')
 
-def run_setup(request):
-    call_command('migrate')
-    call_command('collectstatic', interactive=False)
-    return HttpResponse("✔️ migrate and collectstatic completed")
