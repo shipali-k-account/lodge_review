@@ -20,6 +20,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('delete/<int:review_id>/', views.delete_review, name='delete_review'),
     
-
-
+    path('create-superuser/', views.create_superuser, name='create_superuser'),
+    path('run-migrations/', views.run_migrations, name='run_migrations'),
 ]

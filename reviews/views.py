@@ -4,8 +4,12 @@ from .models import Review
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
 
-
-
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
+import os
+from django.http import HttpResponse
+from django.core.management import call_command
+import os
 
 
 
@@ -38,5 +42,23 @@ def delete_review(request, review_id):
     return redirect('dashboard')
 
 
+def create_superuser(request):
+    User = get_user_model()
+    if not User.objects.filter(username=os.environ.get("DJANGO_SUPERUSER_USERNAME")).exists():
+        User.objects.create_superuser(
+            username=os.environ.get("DJANGO_SUPERUSER_USERNAME"),
+            email=os.environ.get("DJANGO_SUPERUSER_EMAIL"),
+            password=os.environ.get("DJANGO_SUPERUSER_PASSWORD"),
+        )
+        return HttpResponse("Superuser created.")
+    else:
+        return HttpResponse("Superuser already exists.")
 
+def run_migrations(request):
+    token = request.GET.get("token")
+    if token == os.environ.get("MIGRATE_TOKEN"):
+        call_command("migrate")
+        return HttpResponse("Migrations applied.")
+    else:
+        return HttpResponse("Unauthorized", status=401)
 
