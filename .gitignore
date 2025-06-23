@@ -1,28 +1,26 @@
-
+# Python cache
 __pycache__/
 *.py[cod]
 
-
+# Django DB (local only)
 db.sqlite3
 
+# Virtual environment (very important!)
+venv/
 
+# Secret credentials
 .env
 
-
+# Editor & OS files
 .vscode/
-
-
+.idea/
 .DS_Store
 Thumbs.db
 
-
+# Logs and archives
 *.log
-
-
 *.zip
 
-
+# Compiled files from Django migrations
 **/migrations/__pycache__/
 **/migrations/*.pyc
-
-.env
