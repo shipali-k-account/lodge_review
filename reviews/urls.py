@@ -1,4 +1,4 @@
-
+from django.shortcuts import redirect
 from django.urls import path  
 from . import views
 from django.contrib.auth import views as auth_views
@@ -7,6 +7,7 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+    path('', lambda request: redirect('/admin/')),
 
     path('review/', views.submit_review, name='submit_review'),
 
