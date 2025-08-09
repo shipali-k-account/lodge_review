@@ -2,8 +2,8 @@
 __pycache__/
 *.py[cod]
 
-# Django DB (local only)
-db.sqlite3
+
+
 
 # Virtual environment (very important!)
 venv/
