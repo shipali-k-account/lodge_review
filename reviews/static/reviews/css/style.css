@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #4e1f62, #0f0710);
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+}
+
+/* Beautiful card with glass effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 4px solid rgb(0, 0, 0);  /* Dark black border */
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(11, 2, 2, 0.3);
+}
+
+
+/* Input fields */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.85);
+    border:#0f0710;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(168, 14, 14, 0.1);
+    padding: 12px;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Focus effect */
+.form-control:focus {
+    border: 2px solid #ab47bc;
+    box-shadow: 0 0 5px #ba68c8;
+}
+
+/* Floating label style */
+.form-floating > label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Review textarea margin and emphasis */
+#review {
+    margin-bottom: 25px;
+}
+
+/* Button */
+.btn-light {
+    background-color: #fff;
+    color: #6A1B9A;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-light:hover {
+    background-color: #6A1B9A;
+    color: white;
+}

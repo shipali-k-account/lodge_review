@@ -24,3 +24,5 @@ Thumbs.db
 # Compiled files from Django migrations
 **/migrations/__pycache__/
 **/migrations/*.pyc
+/staticfiles/
+
